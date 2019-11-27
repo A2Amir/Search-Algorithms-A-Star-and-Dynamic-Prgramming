@@ -16,3 +16,5 @@ In addition to the practical benefits of these algorithms, it's also conceptuall
 
 The fundamental problem in motion planning is that a robot might live in a world like below and it might want to find its way to a goal and has to device a plan to get to the goal. This same problem occurs for a self driving car that might live in a city near a highway on a network of streets. It has to find its way around and navigate to its target location.
 If we look at the intersection in figure, a car coming from A (Start) that wishes to go over B (goal). To take a left turn (C) on the intersection, this car would have to turn right first (D), engage in a lane shift (F) and then take the left turn(C) to the goal location. B
+
+<p align="right"> <img src="./img/1.png" style="right;" alt=" Pseudocode" width="600" height="400"> </p> 
