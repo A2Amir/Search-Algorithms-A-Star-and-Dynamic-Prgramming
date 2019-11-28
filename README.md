@@ -121,6 +121,7 @@ You really don't want to wait for the truck to disappear. That means the environ
 
 What dynamic programming gives you is a plan for every position. If we redraw this environment as a grid with a goal location and certain obstacles, they dynamic programming gives you an optimal action to do at every single grid cell.As you can see below, each grid cell now has a label. That label is often called policy.
 
-<p align="right"> <img src="./img/10.jpg" style="right;" alt="Policy" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/9.jpg" style="right;" alt="Policy" width="600" height="400"> </p> 
 
 
+Policy is a function that maps the grid cell into an action with the action in this case as a move left, move down, move right, or move up. Now, we will compute a policy using dynamic programming.
