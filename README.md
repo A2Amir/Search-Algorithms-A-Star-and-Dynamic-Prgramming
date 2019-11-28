@@ -1,5 +1,7 @@
 # Search-Algorithms (A-Star and Dynamic-Prgramming)
 
+
+## Introduction
  In this repository we will learn some of the foundational search algorithms (A* and dynamic Prgramming) used in discrete path planning. Path planning can be explained in the self-driving car as how the vehicle generates safe drivable trajectories to get where we want it to go. 
 
 The path planning block uses all of  data (data from computer vision and sensor fusion in order to understand the environment around us and data from localization to understand precisely where we are in that environment) to decide which maneuver to take next then it constructs a trajectory for the controller to execute. 
@@ -37,4 +39,17 @@ Just for simplicity, in this example let's assume the robot is given 4 actions.I
 
 <p align="right"> <img src="./img/2.jpg" style="right;" alt=" the Maze" width="600" height="400"> </p> 
 
-As seen, 11 action are required to go from the start to the goal 
+As seen, 11 action are required to go from the start to the goal.
+
+
+## First Search Program
+
+The big question now is, can we write a program that finds the shortest path from Start to Goal to do this, Let's give the grid cells names. We have six columns named from zero to five and five rows from zero to four and the basic idea I would pursue is that I keep a list of nodes that I wish to investigate further as we search and expand. 
+
+
+
+Let's call this list “open”, to the beginning of any one state on this list is [0,0] the initial state.  just to make sure we never pick the state again we checkmark the state with a  red check. I now can test whether this state [0,0]  is my final goal state. Obviously it's not. I'm not done with planning yet.
+Next I expand this state so take it [0,0] off my open list and look at all the successors of which there are two [1,0] and [0, 1]. Those two are now expanded (We checked them) and one last thing I maintain for each of these states on the open list is, the number of expansions it took to get there (zero for initial state and one for these two states). That (the number of expansions) is called g value and will be the length of the optimal path. 
+
+<p align="right"> <img src="./img/3.jpg" style="right;" alt=" g vakue" width="600" height="400"> </p> 
+
