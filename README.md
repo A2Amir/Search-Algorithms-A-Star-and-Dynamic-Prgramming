@@ -99,4 +99,23 @@ To implement A* algorithm, the key modification for our search algorithm is real
 
 You can find all of the implemented steps of the A* algorithm [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb).
 
+## 4. Dynamic Programming
+
+I now want to teach an alternative method for planning. This alternative method has a number of advantages and a number of disadvantages. It's called dynamic programming and just like A-star, it's going to find the shortest path.
+You give the alternative method:
+* A map of the environment as in A-star, 
+* One or more goal positions
+the output.
+* the best path from any possible starting location.
+
+
+<p align="right"> <img src="./img/8.jpg" style="right;" alt="Dynamic Programming" width="600" height="400"> </p> 
+
+
+If you reach the straight lane (G), the only way to get to the goal is to go around the block. You've seen this example before.
+Now, the point I want to make is a different one. That is, your attempt to do a lane shift (F) might fail. Why would it fail?  it could be there's a big, truck in this lane (F) and as you go into the right lane when you're waiting for the truck to disappear, there are people behind you that honk their horns.
+
+You really don't want to wait for the truck to disappear. That means the environment is stochastic and the outcomes of actions are non-deterministic.  In our planning we ignored this, but in reality that's the case.
+
+**What that means is you need a plan not just for the most likely position but you might need a plan for other positions as well.**
 
