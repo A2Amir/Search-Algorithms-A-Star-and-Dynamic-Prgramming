@@ -1,7 +1,7 @@
 # Search-Algorithms (A-Star and Dynamic-Prgramming)
 
 
-## Introduction
+## 1. Introduction
  In this repository we will learn some of the foundational search algorithms (A* and dynamic Prgramming) used in discrete path planning. Path planning can be explained in the self-driving car as how the vehicle generates safe drivable trajectories to get where we want it to go. 
 
 The path planning block uses all of  data (data from computer vision and sensor fusion in order to understand the environment around us and data from localization to understand precisely where we are in that environment) to decide which maneuver to take next then it constructs a trajectory for the controller to execute. 
@@ -42,7 +42,7 @@ Just for simplicity, in this example let's assume the robot is given 4 actions.I
 As seen, 11 action are required to go from the start to the goal.
 
 
-## First Search Program
+## 2. First Search Program
 
 The big question now is, can we write a program that finds the shortest path from Start to Goal to do this, Let's give the grid cells names. We have six columns named from zero to five and five rows from zero to four and the basic idea I would pursue is that I keep a list of nodes that I wish to investigate further as we search and expand. 
 
@@ -63,7 +63,7 @@ I only expand if I find an unchecked node. The new open list has these two nodes
 **You can finde a piece (First Search Program Section) of code [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb) that implements what I just described.This is the key of a search algorithm.**
 
 
-## Expansion Grid
+###  2.1 Expansion Grid
 
 In this [Expansion Grid section](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb), I print out a table like below called expand. What expand is, is a table of the same size as grid that maintains at what step each node was expanded.
 Every node that has never been expanded including all the obstacle nodes should have the value of -1 and when a node is expanded, it should get a unique number that is incremented from expansion to expansion and counts from 0, in this case, all the way to 22 for reaching the goal stated.
@@ -72,8 +72,10 @@ Every node that has never been expanded including all the obstacle nodes should 
 
 
 
-## Print Path
+###  2.2 Print Path
 
 To see an output like below, there are arrows to the right and down, which is the optimal action to take in the cells  and in the end a star, which indicates the location of the goal is  implemented in [the print path's section](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb) an algorithm with all steps.
 
 <p align="right"> <img src="./img/5.jpg" style="right;" alt="Print Path" width="600" height="200"> </p> 
+
+## 3. A*
