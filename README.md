@@ -23,3 +23,12 @@ Now, a lane shift (F) is a risky proposition. If there is a  truck parked, the s
 
 **The process of finding a path from a start location to a goal location is called "planning." For robots, it's often called "robot motion planning.** We are going to talk about discrete methods for planning in which the world chopped into small bins.
 
+What's the planning problem? 
+
+* We're given a map of the world.
+* We're given a starting location.
+* We're given a goal location.
+* we're given some sort of a cost function. The simplest way to think of cost is just the time it takes to drive a certain route.
+
+**The goal is find the minimum cost path.**
+
