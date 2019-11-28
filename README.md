@@ -79,3 +79,10 @@ To see an output like below, there are arrows to the right and down, which is th
 <p align="right"> <img src="./img/5.jpg" style="right;" alt="Print Path" width="600" height="200"> </p> 
 
 ## 3. A*
+
+Now I want to come with you to the absolute meat of this lesson, which is called A*, A* was invented by Nels Nelson at Stanford many years ago and is a variant of the search algorithm that is more efficient than expanding every node.
+I you understand mechanism for searching by gradually expanding nodes in the open list, A* is almost the same thing but not quit. To illustrate A * I am going to use the same grid as before but with different obstacle configuration, as you see below, we are forced to go from Start to Goal.
+
+
+<p align="right"> <img src="./img/6.jpg" style="right;" alt="A*" width="600" height="200"> </p> 
+
