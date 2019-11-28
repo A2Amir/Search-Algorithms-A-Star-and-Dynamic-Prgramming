@@ -65,7 +65,7 @@ I only expand if I find an unchecked node. The new open list has these two nodes
 
 ## Expansion Grid
 
-In this Expansion section, I would like to print out a table like below called expand, which does not exist right. What expand is, is a table of the same size as grid that maintains at what step each node was expanded.
+In this [Expansion section](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb), I would like to print out a table like below called expand, which does not exist right. What expand is, is a table of the same size as grid that maintains at what step each node was expanded.
 Every node that has never been expanded including all the obstacle nodes should have the value of -1 and when a node is expanded, it should get a unique number that is incremented from expansion to expansion and counts from 0, in this case, all the way to 22 for reaching the goal stated.
 
 <p align="right"> <img src="./img/12.jpg" style="right;" alt=" Expansion Grid" width="600" height="400"> </p> 
