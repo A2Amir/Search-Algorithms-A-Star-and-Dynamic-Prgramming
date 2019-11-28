@@ -76,4 +76,4 @@ Every node that has never been expanded including all the obstacle nodes should 
 
 To see an output like below, there are arrows to the right and down, which is the optimal action to take in the cells  and in the end a star, which indicates the location of the goal is  implemented in [the print path's section](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb) an algorithm with all steps.
 
-<p align="right"> <img src="./img/5.jpg" style="right;" alt="Print Path" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/5.jpg" style="right;" alt="Print Path" width="600" height="200"> </p> 
