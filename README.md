@@ -12,4 +12,7 @@ In addition to the practical benefits of these algorithms, it's also conceptuall
 * Optimality and the tradeoffs associated with finding the best solution vs finding a solution that is good enough.
 * Online vs Offline algorithms and how we can avoid complex computation on the road by precomputing best paths whenever possible.
 
+
+The fundamental problem in motion planning is that a robot might live in a world like below and it might want to find its way to a goal and has to device a plan to get to the goal. This same problem occurs for a self driving car that might live in a city near a highway on a network of streets. It has to find its way around and navigate to its target location which need to pan a path.
+
 <p align="right"> <img src="./img/1.jpg" style="right;" alt=" Pseudocode" width="600" height="400"> </p> 
