@@ -54,7 +54,7 @@ Next I expand this state so take it [0,0] off my open list and look at all the s
 <p align="right"> <img src="./img/3.jpg" style="right;" alt=" g value" width="600" height="400"> </p> 
 
 
-Let's go further and expand one of the two ([1, 0] and [0, 1]). We always expand the one with the smallest g value but these are equivalent (they both have a g value of one). Let me expand the first one. The first one has 3 neighbours ([0,0],[1,1],[2,0])and because [0 ,0] is already closed with a checkmark we don't consider it anymore, which gives me [2, 0] and [1, 1] both with the g value of 2 and we checkmark those ([1,1],[2,0]) . Now I pick again the node on the open list with the smallest g value which happens to be the [0,1].  There's really no choice. It has 2 neighbours ([0 0] and [1 1]) by both already checked. So therefore there is no expansion that takes place. 
+Let's go further and expand one of the two ([1, 0] and [0, 1]). We always expand the one **with the smallest g value** but these are equivalent (they both have a g value of one). Let me expand the first one. The first one has 3 neighbours ([0,0],[1,1],[2,0])and because [0 ,0] is already closed with a checkmark we don't consider it anymore, which gives me [2, 0] and [1, 1] both with the g value of 2 and we checkmark those ([1,1],[2,0]) . Now I pick again the node on the open list with the smallest g value which happens to be the [0,1].  There's really no choice. It has 2 neighbours ([0 0] and [1 1]) by both already checked. So therefore there is no expansion that takes place. 
 
 <p align="right"> <img src="./img/4.jpg" style="right;" alt=" g value" width="600" height="400"> </p> 
 
