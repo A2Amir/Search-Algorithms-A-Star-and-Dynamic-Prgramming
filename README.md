@@ -141,5 +141,18 @@ In real traffic, often you have to wait for oncoming traffic. Let me say in our 
 For this reason, we would like to punish left turns, to perform this policy we need change cost for each action we have. Suppose we have a car like figure below. This car now has its state a x, a y, and an orientation (theta).By orientation for simplicity is chosen from 4 possible directions (up, down, left, and right).  I'd like to get to the location B (facing left). Realize that now the state space is 3-dimensional,I now would like to implement a dynamic programming planner that gives me the optimal path for going from A to B by considering the cost policy for each action.
 
 <p align="right"> <img src="./img/11.jpg" style="right;" alt="Left Turn Policy" width="600" height="400"> </p> 
+There are three principle actions.
+* One is move in which the car just goes 1 grid cell forward in its present orientation. It doesn't turn at all. That could be applied anywhere in the maze in any direction.
+* One is turn left and then move.
+* The last one is turn right and move.
+These actions come with different costs:
+* The right turn costs me 2
+* Going straight costs me 1 
+* Going left costs me 1
+If I were to increase the cost for the left action to 20, then my path to get the location changes.
+
+
+
+
 
 
