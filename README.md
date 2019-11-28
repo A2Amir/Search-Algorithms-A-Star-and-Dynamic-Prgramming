@@ -60,5 +60,5 @@ Let's go further and expand one of the two ([1, 0] and [0, 1]). We always expand
 
 I only expand if I find an unchecked node. The new open list has these two nodes ([2,0]and [1,1]) and  the algorithm is executed further and what's going to happen is my nodes will expand gradually into the free space until I eventually hit the goal node and without proof the g value, when I hit the goal node will be exactly the number of steps it takes to go from the Start state to the Goal node. The secret for that lies in the fact that I always expand the node with the smallest g value. 
 
- you can finde a piece of code [Here]() that implements what I just described.This is the key of a search algorithm.
+ you can finde a piece of code [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb) that implements what I just described.This is the key of a search algorithm.
 
