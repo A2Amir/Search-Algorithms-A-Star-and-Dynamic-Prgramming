@@ -78,11 +78,25 @@ To see an output like below, there are arrows to the right and down, which is th
 
 <p align="right"> <img src="./img/5.jpg" style="right;" alt="Print Path" width="600" height="200"> </p> 
 
+
+
 ## 3. A*
 
 Now I want to come with you to the absolute meat of this lesson, which is called A*, A* was invented by Nels Nelson at Stanford many years ago and is a variant of the search algorithm that is more efficient than expanding every node.
 I you understand mechanism for searching by gradually expanding nodes in the open list, A* is almost the same thing but not quit. To illustrate A * I am going to use the same grid as before but with different obstacle configuration, as you see below, we are forced to go from Start to Goal.
 
 
-<p align="right"> <img src="./img/6.jpg" style="right;" alt="A*" width="600" height="200"> </p> 
+<p align="right"> <img src="./img/6.jpg" style="right;" alt="A*" width="600" height="400"> </p> 
+
+A* uses a called heuristic function, which is a function that has to be set up and If we call the heuristic function (h) then for each cell it results into  a value (the number of steps it takes to the goal if there was no obstacle).
+So the heuristic function has to be an optimistic guess how far we are from the goal, put differently for any cell (x,y) heuristic function has to be an optimistic guess, which means a smaller or equal value to the actual goal distance from the coordinate x and y.
+The beauty of the heuristic function lies in, it does not have to be accurate, if it was accurate you probably solved the planning problem. It boils down much to the number of which cell steps but for the Euclidean distance to the target location.
+
+To implement A* algorithm, the key modification for our search algorithm is really simple, we again have an open list  and we add our state and write g-value, we also write g value plus the heuristic value (f value), if we now expand we remove the element **with the lowest f value** (not the lowest g value). That is all for implementing a A*
+
+
+<p align="right"> <img src="./img/7.jpg" style="right;" alt="A*" width="600" height="400"> </p> 
+
+You can find all of the implemented steps of the A* algorithm [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb).
+
 
