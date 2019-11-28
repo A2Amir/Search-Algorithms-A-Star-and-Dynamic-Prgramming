@@ -123,5 +123,16 @@ What dynamic programming gives you is a plan for every position. If we redraw th
 
 <p align="right"> <img src="./img/9.jpg" style="right;" alt="Policy" width="600" height="400"> </p> 
 
+Policy is a function that maps the grid cell into an action in this case as a move left, move down, move right, or move up. Now, we will compute a policy using dynamic programming.
 
-Policy is a function that maps the grid cell into an action with the action in this case as a move left, move down, move right, or move up. Now, we will compute a policy using dynamic programming.
+
+Let me make a simple example of a world like below  with the obstacles,  Say the goal state is the one in the corner, Rather than telling you how to compute the optimal policy, which assigns an action to each of these cells, let me say about "value."
+
+<p align="right"> <img src="./img/10.jpg" style="right;" alt="Policy value" width="600" height="400"> </p> 
+
+ A "value function" associates to each grid cell the length of the shortest path to the goal (For the goal, obviously, it is 0 and for each adjacent cell to the goal, it's obviously 1 and so on). This is recursively calculated by taking the optimal neighbour x-prime, y-prime, considering its value, and by adding the costs it takes to get there (in our example cost will be 1). By applying this update equation recursively, we can attain this value function. 
+ 
+Once we have this value function (gird above ), we find that the optimal control action is obtained by minimizing the value, which is a hill-climbing type of action.
+
+## 5. Left Turn Policy
+
