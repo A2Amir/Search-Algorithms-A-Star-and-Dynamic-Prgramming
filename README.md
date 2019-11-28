@@ -119,3 +119,8 @@ You really don't want to wait for the truck to disappear. That means the environ
 
 **What that means is you need a plan not just for the most likely position but you might need a plan for other positions as well.**
 
+What dynamic programming gives you is a plan for every position. If we redraw this environment as a grid with a goal location and certain obstacles, they dynamic programming gives you an optimal action to do at every single grid cell.As you can see below, each grid cell now has a label. That label is often called policy.
+
+<p align="right"> <img src="./img/10.jpg" style="right;" alt="Policy" width="600" height="400"> </p> 
+
+
