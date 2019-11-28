@@ -35,5 +35,6 @@ What's the planning problem?
 Let's look at the path planning problem as a search problem. Let's start with a little grid world of size 6 x 5  where our start location is in the top left corner, our goal in the bottom right corner. I block off a few cells so there is still a safe path to the goal. This could be a search through a city graph, through a parking lot or through a maze of streets for a mobile robot.
 Just for simplicity, in this example let's assume the robot is given 4 actions.It can go up, down, left, or right. Also for simplicity, let's assume every action succeeds with absolute certainty. We don't model uncertainty in this example.
 
-<p align="right"> <img src="./img/2.jpg" style="right;" alt=" the intersection" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/2.jpg" style="right;" alt=" the Maze" width="600" height="400"> </p> 
 
+As seen, 11 action are required to go from the start to the goal 
