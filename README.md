@@ -136,3 +136,10 @@ Once we have this value function (gird above ), we find that the optimal control
 
 ## 5. Left Turn Policy
 
+
+In real traffic, often you have to wait for oncoming traffic. Let me say in our planning, left turns are more expensive. In fact, I should mention that parcel delivery services that plan for optimal routes of trucks like FedEx and UPS in the States, they actually plan routes that try to avoid left turns during rush hours, because it just takes much longer to do left turns.
+For this reason, we would like to punish left turns, to perform this policy we need change cost for each action we have. Suppose we have a car like figure below. This car now has its state a x, a y, and an orientation (theta).By orientation for simplicity is chosen from 4 possible directions (up, down, left, and right).  I'd like to get to the location B (facing left). Realize that now the state space is 3-dimensional,I now would like to implement a dynamic programming planner that gives me the optimal path for going from A to B by considering the cost policy for each action.
+
+<p align="right"> <img src="./img/11.jpg" style="right;" alt="Left Turn Policy" width="600" height="400"> </p> 
+
+
