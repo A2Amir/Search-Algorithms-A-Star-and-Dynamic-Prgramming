@@ -17,7 +17,7 @@ The fundamental problem in motion planning is that a robot might live in a world
 
 If we look at the intersection in figure below, a car coming from A (Start) that wishes to go to B (goal). To take a left turn (C) on the intersection, this car would have to turn right first (D), engage in a lane shift (F) and then take the left turn(C) to the goal location (B).
 
-<p align="right"> <img src="./img/1.jpg" style="right;" alt=" Pseudocode" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/1.jpg" style="right;" alt=" the intersection" width="600" height="400"> </p> 
 
 Now, a lane shift (F) is a risky proposition. If there is a  truck parked, the space might be insufficient to carry out the lane shift. An alternative plan might be to go straight (G), take the detour around the block, and then go straight to the target location.
 
@@ -31,4 +31,9 @@ What's the planning problem?
 * we're given some sort of a cost function. The simplest way to think of cost is just the time it takes to drive a certain route.
 
 **The goal is find the minimum cost path.**
+
+Let's look at the path planning problem as a search problem. Let's start with a little grid world of size 6 x 5  where our start location is in the top left corner, our goal in the bottom right corner. I block off a few cells so there is still a safe path to the goal. This could be a search through a city graph, through a parking lot or through a maze of streets for a mobile robot.
+Just for simplicity, in this example let's assume the robot is given 4 actions.It can go up, down, left, or right. Also for simplicity, let's assume every action succeeds with absolute certainty. We don't model uncertainty in this example.
+
+<p align="right"> <img src="./img/2.jpg" style="right;" alt=" the intersection" width="600" height="400"> </p> 
 
