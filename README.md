@@ -1,7 +1,7 @@
 # Search-Algorithms (A-Star and Dynamic-Prgramming)
 
 
-## Introduction
+## 1. Introduction
  In this repository we will learn some of the foundational search algorithms (A* and dynamic Prgramming) used in discrete path planning. Path planning can be explained in the self-driving car as how the vehicle generates safe drivable trajectories to get where we want it to go. 
 
 The path planning block uses all of  data (data from computer vision and sensor fusion in order to understand the environment around us and data from localization to understand precisely where we are in that environment) to decide which maneuver to take next then it constructs a trajectory for the controller to execute. 
@@ -42,7 +42,7 @@ Just for simplicity, in this example let's assume the robot is given 4 actions.I
 As seen, 11 action are required to go from the start to the goal.
 
 
-## First Search Program
+## 2. First Search Program
 
 The big question now is, can we write a program that finds the shortest path from Start to Goal to do this, Let's give the grid cells names. We have six columns named from zero to five and five rows from zero to four and the basic idea I would pursue is that I keep a list of nodes that I wish to investigate further as we search and expand. 
 
@@ -63,12 +63,99 @@ I only expand if I find an unchecked node. The new open list has these two nodes
 **You can finde a piece (First Search Program Section) of code [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb) that implements what I just described.This is the key of a search algorithm.**
 
 
-## Expansion Grid
+###  2.1 Expansion Grid
 
-In this Expansion section, I would like to print out a table like below called expand, which does not exist right. What expand is, is a table of the same size as grid that maintains at what step each node was expanded.
+In this [Expansion Grid section](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb), I print out a table like below called expand. What expand is, is a table of the same size as grid that maintains at what step each node was expanded.
 Every node that has never been expanded including all the obstacle nodes should have the value of -1 and when a node is expanded, it should get a unique number that is incremented from expansion to expansion and counts from 0, in this case, all the way to 22 for reaching the goal stated.
 
-<p align="right"> <img src="./img/12.jpg" style="right;" alt=" Expansion Grid" width="600" height="400"> </p> 
+<p align="right"> <img src="./img/12.JPG" style="right;" alt=" Expansion Grid" width="300" height="200"> </p> 
+
+
+
+###  2.2 Print Path
+
+To see an output like below, there are arrows to the right and down, which is the optimal action to take in the cells  and in the end a star, which indicates the location of the goal is  implemented in [the print path's section](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb) an algorithm with all steps.
+
+<p align="right"> <img src="./img/5.jpg" style="right;" alt="Print Path" width="600" height="200"> </p> 
+
+
+
+## 3. A*
+
+Now I want to come with you to the absolute meat of this lesson, which is called A*, A* was invented by Nels Nelson at Stanford many years ago and is a variant of the search algorithm that is more efficient than expanding every node.
+I you understand mechanism for searching by gradually expanding nodes in the open list, A* is almost the same thing but not quit. To illustrate A * I am going to use the same grid as before but with different obstacle configuration, as you see below, we are forced to go from Start to Goal.
+
+
+<p align="right"> <img src="./img/6.jpg" style="right;" alt="A*" width="600" height="400"> </p> 
+
+A* uses a called heuristic function, which is a function that has to be set up and If we call the heuristic function (h) then for each cell it results into  a value (the number of steps it takes to the goal if there was no obstacle).
+So the heuristic function has to be an optimistic guess how far we are from the goal, put differently for any cell (x,y) heuristic function has to be an optimistic guess, which means a smaller or equal value to the actual goal distance from the coordinate x and y.
+The beauty of the heuristic function lies in, it does not have to be accurate, if it was accurate you probably solved the planning problem. It boils down much to the number of which cell steps but for the Euclidean distance to the target location.
+
+To implement A* algorithm, the key modification for our search algorithm is really simple, we again have an open list  and we add our state and write g-value, we also write g value plus the heuristic value (f value), if we now expand we remove the element **with the lowest f value** (not the lowest g value). That is all for implementing a A*
+
+
+<p align="right"> <img src="./img/7.jpg" style="right;" alt="A*" width="600" height="400"> </p> 
+
+You can find all of the implemented steps of the A* algorithm [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb).
+
+## 4. Dynamic Programming
+
+I now want to teach an alternative method for planning. This alternative method has a number of advantages and a number of disadvantages. It's called dynamic programming and just like A-star, it's going to find the shortest path.
+You give the alternative method:
+* A map of the environment as in A-star, 
+* One or more goal positions
+the output.
+* the best path from any possible starting location.
+
+
+<p align="right"> <img src="./img/8.jpg" style="right;" alt="Dynamic Programming" width="600" height="400"> </p> 
+
+
+If you reach the straight lane (G), the only way to get to the goal is to go around the block. You've seen this example before.
+Now, the point I want to make is a different one. That is, your attempt to do a lane shift (F) might fail. Why would it fail?  it could be there's a big, truck in this lane (F) and as you go into the right lane when you're waiting for the truck to disappear, there are people behind you that honk their horns.
+
+You really don't want to wait for the truck to disappear. That means the environment is stochastic and the outcomes of actions are non-deterministic.  In our planning we ignored this, but in reality that's the case.
+
+**What that means is you need a plan not just for the most likely position but you might need a plan for other positions as well.**
+
+What dynamic programming gives you is a plan for every position. If we redraw this environment as a grid with a goal location and certain obstacles, they dynamic programming gives you an optimal action to do at every single grid cell.As you can see below, each grid cell now has a label. That label is often called policy.
+
+<p align="right"> <img src="./img/9.jpg" style="right;" alt="Policy" width="600" height="400"> </p> 
+
+Policy is a function that maps the grid cell into an action in this case as a move left, move down, move right, or move up. Now, we will compute a policy using dynamic programming.
+
+
+Let me make a simple example of a world like below  with the obstacles,  Say the goal state is the one in the corner, Rather than telling you how to compute the optimal policy, which assigns an action to each of these cells, let me say about "value."
+
+<p align="right"> <img src="./img/10.jpg" style="right;" alt="Policy value" width="600" height="400"> </p> 
+
+ A "value function" associates to each grid cell the length of the shortest path to the goal (For the goal, obviously, it is 0 and for each adjacent cell to the goal, it's obviously 1 and so on). This is recursively calculated by taking the optimal neighbour x-prime, y-prime, considering its value, and by adding the costs it takes to get there (in our example cost will be 1). By applying this update equation recursively, we can attain this value function. 
+ 
+Once we have this value function (gird above ), we find that the optimal control action is obtained by minimizing the value, which is a hill-climbing type of action.
+
+## 5. Left Turn Policy
+
+
+In real traffic, often you have to wait for oncoming traffic. Let me say in our planning, left turns are more expensive. In fact, I should mention that parcel delivery services that plan for optimal routes of trucks like FedEx and UPS in the States, they actually plan routes that try to avoid left turns during rush hours, because it just takes much longer to do left turns.
+For this reason, we would like to punish left turns, to perform this policy we need change cost for each action we have. Suppose we have a car like figure below. This car now has its state a x, a y, and an orientation (theta).By orientation for simplicity is chosen from 4 possible directions (up, down, left, and right).  I'd like to get to the location B (facing left). Realize that now the state space is 3-dimensional,I now would like to implement a dynamic programming planner that gives me the optimal path for going from A to B by considering the cost policy for each action.
+
+<p align="right"> <img src="./img/11.jpg" style="right;" alt="Left Turn Policy" width="600" height="400"> </p> 
+There are three principle actions:
+
+* One is move in which the car just goes 1 grid cell forward in its present orientation. It doesn't turn at all. That could be applied anywhere in the maze in any direction.
+* One is turn left and then move.
+* The last one is turn right and move.
+
+These actions come with different costs:
+
+* The right turn costs me 2
+* Going straight costs me 1 
+* Going left costs me 1
+
+If I were to increase the cost for the left action to 20, then my path to get the location changes.You can find all of the implemented steps of theLeft Turn Policy [Here](https://github.com/A2Amir/Search-Algorithms-A-Star-and-Dynamic-Prgramming/blob/master/Code.ipynb).
+
+
 
 
 
